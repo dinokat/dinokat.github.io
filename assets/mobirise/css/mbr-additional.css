@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
 
 
 
@@ -41,7 +42,7 @@ body {
   font-size: 0.96rem;
 }
 .display-5 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
 }
 .display-5 > .mbr-iconfont {
@@ -2580,6 +2581,29 @@ body {
   .cid-qzxK4Y6tML .menu-logo {
     flex-shrink: 0;
   }
+}
+.cid-qzxY1ROzoA {
+  background-image: url("../../../assets/images/brusselse-spruiten-2000x1335.jpg");
+}
+.cid-qzxY1ROzoA h1 {
+  color: #616161;
+}
+.cid-qzxY1ROzoA h2,
+.cid-qzxY1ROzoA h3,
+.cid-qzxY1ROzoA p {
+  color: #767676;
+}
+.cid-qzxY1ROzoA .mbr-section-subtitle {
+  font-style: italic;
+}
+.cid-qzxY1ROzoA H1 {
+  color: #cc2952;
+}
+.cid-qzxY1ROzoA H3 {
+  color: #cc2952;
+}
+.cid-qzxY1ROzoA P {
+  color: #cc2952;
 }
 .cid-qzxLE4SZMB {
   background: #ffffff;
