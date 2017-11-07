@@ -1,0 +1,7 @@
+/*
+alles.js
+*/
+
+function transp(){
+    
+}
