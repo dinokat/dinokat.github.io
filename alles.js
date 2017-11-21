@@ -1,7 +1,0 @@
-/*
-alles.js
-*/
-
-function transp(){
-    
-}
