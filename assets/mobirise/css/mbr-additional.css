@@ -3423,3 +3423,21 @@ body {
 .cid-qBUKjc0B4E .mbr-section-subtitle {
   font-style: italic;
 }
+.cid-qEaiYjxJGs {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #ffffff;
+}
+@media (min-width: 992px) {
+  .cid-qEaiYjxJGs .mbr-figure {
+    padding-right: 4rem;
+  }
+}
+@media (max-width: 992px) {
+  .cid-qEaiYjxJGs .mbr-figure {
+    padding-bottom: 1rem;
+  }
+}
+.cid-qEaiYjxJGs .mbr-text {
+  color: #767676;
+}
