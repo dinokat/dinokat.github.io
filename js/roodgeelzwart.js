@@ -42,7 +42,7 @@ function randgrid(d, cols, rows){
 }
 
 
-randgrid(ctx, 5, 7);
+randgrid(ctx, 7, 5);
 
 /*
 // set canvas
