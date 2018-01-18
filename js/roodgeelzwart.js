@@ -36,7 +36,7 @@ function randgrid(d, kols, rijs){
 	for(i=0; i<kols; i++){
 		for(j=0; j<rijs; j++){
 			d.fillStyle = randc();
-			d.fillRect(i*20, j*40, 20, 40);
+			d.fillRect(i*20 + 100, j*40 + 100, 20, 40);
 		}
 	}
 }
