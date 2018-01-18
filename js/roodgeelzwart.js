@@ -1,4 +1,23 @@
 
+var canvas = document.createElement('canvas');
+
+canvas.id = "Doek";
+canvas.width = 1224;
+canvas.height = 768;
+canvas.style.zIndex = 8;
+canvas.style.position = "absolute";
+canvas.style.border = "1px solid";
+
+
+var body = document.getElementsByTagName("body")[0];
+body.appendChild(canvas);
+
+doek = document.getElementById("Doek");
+
+console.log(doek);
+
+var ctx = canvas.getContext("2d");
+
 
 function rgbp(arg){
 	return "rgba(0, c, 0, 1)".replace("c", ""+arg);
@@ -12,6 +31,20 @@ function randc(){
 	if (c==2) return 'yellow'; 
 }
 
+
+function randgrid(d, cols, rows){
+	for(i=0;i<cols;i++){
+		for(j=0;j<rows;j++){
+			d.fillStyle = randc();
+			d.fillRect(i*20, j*20, 20, 20);
+		}
+	}
+}
+
+
+randgrid(ctx, 5, 7);
+
+/*
 // set canvas
 const canvas = {
 	width: 0,
@@ -37,6 +70,8 @@ const canvas = {
 
 };
 
+*/
+
 
 
 
@@ -44,5 +79,5 @@ const canvas = {
 
 
 // init
-const ctx = canvas.init(150, 150, 6, 6 );
+//const ctx = canvas.init(150, 150, 6, 6 );
 
