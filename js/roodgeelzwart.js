@@ -32,11 +32,11 @@ function randc(){
 }
 
 
-function randgrid(d, cols, rows){
-	for(i=0;i<cols;i++){
-		for(j=0;j<rows;j++){
+function randgrid(d, kols, rijs){
+	for(i=0; i<kols; i++){
+		for(j=0; j<rijs; j++){
 			d.fillStyle = randc();
-			d.fillRect(i*20, j*20, 20, 20);
+			d.fillRect(i*20, j*40, 20, 40);
 		}
 	}
 }
