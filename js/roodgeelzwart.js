@@ -29,6 +29,7 @@ const canvas = {
 				ctx.beginPath();
 				ctx.rect(xx*x,yy*y,x,y);
 				ctx.fillStyle= randc();
+				ctx.fill();
 			}
 		}
 		return ctx;
