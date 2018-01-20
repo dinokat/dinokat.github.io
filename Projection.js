@@ -32,9 +32,9 @@ function assignCanvas(){
 $(document).ready(function(){
 
 
-var cw = 840; // canvas width
-var ch = 525; // canvas height
-var xw = 280; // canvas width divided by 3
+var cw = 1680; // canvas width
+var ch = 800; // canvas height
+var xw = 560; // canvas width divided by 3
 
 
 $("canvas").attr({width: cw, height: ch}).css("border", "1px solid black");
@@ -61,8 +61,8 @@ $('div').click(function(){
   var randttt = Math.random();
   if(randttt>0.5){
 
-    var t=ran([3,3,3,2,2,1,1]);
-    var t2 = (t==3)?0 : (t==2) ? 1 : ran([2,2,1]);
+    var t=ran([3,2,1,1]);
+    var t2 = (t==3)?0 : (t==2) ? 1 : ran([2,1]);
     //var t3 = (t2==1 && t==1) 1 : 0;
     $('#c').drawImage({
         source: images[Math.floor(Math.random()*3)],
