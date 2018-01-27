@@ -188,9 +188,10 @@ $('div').click(function(){
 
     //  tt= window.MAAK2(2.8, cen, 400);
       //vormpje=solve(tt,1);
-      var vormpje=window.MAAK2(3, cen, 400, 2);
-      vormpje['strokeStyle']='none';
+      var vormpje=window.MAAK2(3, cen, 400, 1);
+      vormpje['strokeStyle']='#0f0';
       vormpje['fillStyle']='#0f0';
+      vormpje['strokeWidth']='30';
       vormpje['layer']=true;
       vormpje['close']=false;
 
