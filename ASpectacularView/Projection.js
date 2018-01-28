@@ -1,17 +1,54 @@
 
 
-var images = ['mossel.jpg','spruitje.png', 'mosterd.png'];
-var vids =['tiktak6.mp4','nacho.mp4','lidl.mp4'];
+var images = ['./media/mossel.jpg','./media/spruitje.png', './media/mosterd.png'];
+var vids =['./media/tiktak6.mp4','./media/nacho.mp4','./media/lidl.mp4'];
 var txt = ["ASPECULACTUARVIWE!!!", "ISDITALLES", "A fish doesn't think, because a fish knows everything"];
 
+// Create a drawHeart() method
+$.jCanvas.extend({
+  name: 'drawPath2d',
+  type: 'Path2d',
+  props: {
+    dataa: 'M1 10 h 80 v 80 h -80 Z',
+    fillStyle: 'red',
+    strokeWidth: 2
+  },
+  fn: function(ctx, params) {
+    // Just to keep our lines short
+    var p = params;
+    // Enable layer transformations like scale and rotate
+    //$.jCanvas.transformShape(this, ctx, p);
+    // Draw shape
+    $('canvas').draw({
+      fn: function(ctx) {
+
+        var shape = new Path2D(p.dataa);
+        //ctx.fillStyle=p.fillStyle;
+        ctx.strokeStyle=p.fillStyle;
+        ctx.strokeWidth=p.strokeWidth;
+        ctx.stroke(shape);
+        }
+      });
+
+
+
+
+
+
+    // Call the detectEvents() function to enable jCanvas events
+    // Be sure to pass it these arguments, too!
+    //$.jCanvas.detectEvents(this, ctx, p);
+    // Call the closePath() functions to fill, stroke, and close the path
+    // This function also enables masking support and events
+    // It accepts the same arguments as detectEvents()
+    //$.jCanvas.closePath(this, ctx, p);
+  }
+});
 
 function rann(r){
   var l = r.length;
   return r[Math.floor(Math.random()*l)];
 }
-
-
-
 
 /*
 
@@ -21,20 +58,29 @@ function assignCanvas(){
   im.onload=function(){
     ctx.drawImage(im,0,0,Math.floor(840/3.0),525);
   }
-
   im = new Image();
   im.src=images[1];
   im.onload=function(){
       ctx.drawImage(images[1],Math.floor(840/3.0),0,Math.floor(840/3.0),525);
   }
-
-
 }
 */
 
-
 $(document).ready(function(){
   console.log("klaar met laden")
+
+  var points2 = [
+  100,350,
+  200,100,
+  450,50,
+  280,200,
+  500,300,
+  600,100,
+  700,350
+];
+  //var res = solve(points2,2);
+//  alert(res.cx3);
+
 
   var points = [
     100,350,
@@ -54,11 +100,11 @@ $(document).ready(function(){
 
   //var points= fns.nieuw().ptn;
   //$("#deb").text(JSON.stringify(points,undefined,4));
-  var vormpje=window.MAAK2(2.8, cen, 400, 1);//solve(tt,1);
-  vormpje['strokeStyle']='#000';
-  vormpje['fillStyle']='#0f0';
-  vormpje['layer']=true;
-  vormpje['close']=false;
+//  var vormpje=window.MAAK2(2.8, cen, 400, 1);//solve(tt,1);
+  //vormpje['strokeStyle']='#000';
+  //vormpje['fillStyle']='#0f0';
+  //vormpje['layer']=true;
+  //vormpje['close']=false;
 
 //$("#deb").text(JSON.stringify(vormpje,undefined,4));
 
@@ -74,7 +120,10 @@ $("video").each(function(){
   $(this).hide();
 });
 
-
+// Use the drawHeart() method
+$('canvas').drawPath2d({
+  dataa: 'M1 10 h80 v80 h-80 z'
+});
 
 
 var vvv={
@@ -82,8 +131,8 @@ var vvv={
   x: 200, y: 100,
   radius: 50, sides: 3
 };
-
-$('canvas').drawPolygon(vvv);/*{
+/*
+$('canvas').drawPolygon(vvv){
   strokeStyle: 'white',
   x: 200, y: 100,
   radius: 50, sides: 3
@@ -188,16 +237,79 @@ $('div').click(function(){
 
     //  tt= window.MAAK2(2.8, cen, 400);
       //vormpje=solve(tt,1);
-      var vormpje=window.MAAK2(3, cen, 400, 1);
+      /*var vormpje=window.MAAK2(3, cen, 400, 1);
+
       vormpje['strokeStyle']='#0f0';
       vormpje['fillStyle']='#0f0';
       vormpje['strokeWidth']='30';
       vormpje['layer']=true;
       vormpje['close']=false;
 
+      *///$('#c').drawBezier(vormpje); //dit werkt!!!
+
+    var vormpje=window.MAAK2(2, cen, 400, 1.5);
 
 
-      $('#c').drawBezier(vormpje);
+    console.log("vormpje");
+    console.log(vormpje);
+    if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }
+    if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    };
+
+    var vormpje2=vormpje.offset(-50);
+
+    cur0= vormpje.curves[0].toSVG();
+    cur1 = vormpje.curves[1].toSVG();
+    curL = vormpje.curves[vormpje.curves.length-1].toSVG();
+    curLL = vormpje.curves[vormpje.curves.length-2].toSVG();
+
+    str1= vormpje.ZtoSVG();
+    str1v2 = vormpje2.ZtoSVG();
+    vormpje.setTension(1.1);
+    str2= vormpje.ZtoSVG();
+    vormpje.setTension(0.8);
+    str3= vormpje.ZtoSVG();
+    vormpje.setTension(1.5);
+    str4= vormpje.ZtoSVG();
+    $('#c').drawPath2d({
+      dataa: str1,
+      fillStyle: 'green'
+    });
+    $('#c').drawPath2d({
+      layer: true,
+      dataa: str1v2,
+      fillStyle: 'blue',
+      strokeWidth: 3
+    });
+    $('#c').drawPath2d({
+      layer: true,
+      dataa: str1,
+      fillStyle: 'red',
+      strokeWidth: 3
+    });
+    $('#c').drawPath2d({
+      dataa: curL,
+      fillStyle: 'orange'
+    });
+    $('#c').drawPath2d({
+      dataa: curLL,
+      fillStyle: 'white'
+    });
+
+
+
+
       /*
       $('#c').drawBezier({
   strokeStyle: '#fff',
@@ -228,7 +340,7 @@ $('div').click(function(){
     };
 
 
-
+/*
 
   $('#c').drawText({
     layer: true,
@@ -245,8 +357,8 @@ $('div').click(function(){
     // Measure (x, y) from the text's top-left corner
     fromCenter: true,
   })
-  .restorCanvas();
-
+  .restoreCanvas();
+*/
 });
 
 

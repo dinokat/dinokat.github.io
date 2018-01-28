@@ -11,6 +11,7 @@ function solve(data, k) {
 
   var path = "M" + [data[0], data[1]];
   var pc = {x1: data[0] , y1: data[1]};
+  var curves = []
 
   for (var i = 0; i < size - 2; i +=2) {
 
@@ -38,6 +39,8 @@ function solve(data, k) {
     pc['cy'+(i+2)] = cp2y;
     pc['x'+((i/2)+2)] = x2;
     pc['y'+((i/2)+2)] = y2;
+
+    
 /*
     pc['cx'+((i/2)+1)] = cp1x;
     pc['cy'+((i/2)+1)] = cp1y;
