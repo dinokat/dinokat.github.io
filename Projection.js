@@ -1,171 +1,189 @@
 
 
-var images = ['mossel.jpg','spruitje.png', 'mosterd.png'];
-var vids =['tiktak6.mp4','nacho.mp4','lidl.mp4'];
+$.jCanvas.extend({
+  name: 'drawPath2d',
+  type: 'Path2d',
+  props: {
+    dataa: 'M1 10 h 80 v 80 h -80 Z',
+    fillStyle: 'red',
+    strokeWidth: 2
+  },
+  fn: function(ctx, params) {
+    // Just to keep our lines short
+    var p = params;
+    // Enable layer transformations like scale and rotate
+    //$.jCanvas.transformShape(this, ctx, p);
+    // Draw shape
+    $('canvas').draw({
+      fn: function(ctx) {
+
+        var shape = new Path2D(p.dataa);
+        //ctx.fillStyle=p.fillStyle;
+        ctx.strokeStyle=p.fillStyle;
+        ctx.strokeWidth=p.strokeWidth;
+        ctx.stroke(shape);
+        }
+      });
 
 
-function ran(r){
+  }
+});
+
+function rann(r){
   var l = r.length;
   return r[Math.floor(Math.random()*l)];
 }
 
 
 
-/*
-
-function assignCanvas(){
-  im = new Image();
-  im.src=images[1];
-  im.onload=function(){
-    ctx.drawImage(im,0,0,Math.floor(840/3.0),525);
-  }
-
-  im = new Image();
-  im.src=images[1];
-  im.onload=function(){
-      ctx.drawImage(images[1],Math.floor(840/3.0),0,Math.floor(840/3.0),525);
-  }
-
-
-}
-*/
 $(document).ready(function(){
+  console.log("klaar met laden")
+
+  var points2 = [
+  100,350,
+  200,100,
+  450,50,
+  280,200,
+  500,300,
+  600,100,
+  700,350
+];
+  //var res = solve(points2,2);
+//  alert(res.cx3);
 
 
-var cw = 1680; // canvas width
-var ch = 800; // canvas height
-var xw = 560; // canvas width divided by 3
+  var points = [
+    100,350,
+    200,100,
+    450,50,
+    280,200,
+  //  500,300,
+    //600,100,
+    700,350,
+  //  600,450
+  ];
+  var cw = 1680; // canvas width
+  var ch = 800; // canvas height
+  var xw = 560; // canvas width divided by 3
+  var cen = window.Punt(cw/2, ch/2);
 
 
-$("canvas").attr({width: cw, height: ch}).css("border", "1px solid black");
-//$("canvas").css("with": "840", "height": "525", "border": "1px solid black");
 
-  //var ctx= $("CAN").getContext('2d');
+$("canvas").attr({width: cw, height: ch})//.css("border", "1px solid black");
 
-//$('video').hide();
-$('#vF').attr('src', vids[1]);
-$("video").each(function(){
-  $(this).get(0).pause();
-  $(this).hide();
-});
+
+
+var vvv={
+  strokeStyle: 'white',
+  x: 200, y: 100,
+  radius: 50, sides: 3
+};
 
 
 $('div').click(function(){
 
+  $('#c').removeLayers();
   $('#c').clearCanvas();
-  $("video").each(function(){
+  /*$("video").each(function(){
     $(this).get(0).pause();
     $(this).hide();
-});
+  });*/
 
-  var randttt = Math.random();
-  if(randttt>0.5){
+    var randttt = Math.random();
+    randttt= 0.1;
+    if(randttt>0.9){
 
-    var t=ran([3,2,1,1]);
-    var t2 = (t==3)?0 : (t==2) ? 1 : ran([2,1]);
-    //var t3 = (t2==1 && t==1) 1 : 0;
-    $('#c').drawImage({
-        source: images[Math.floor(Math.random()*3)],
-        x: 0, y: 0, width: t*xw, height: ch,
-        fromCenter: false,
-    });
-    $('#c').drawImage({
-        source: images[Math.floor(Math.random()*3)],
-        x: t*xw, y: 0, width: t2*xw, height: ch,
-        fromCenter: false,
-    });
-    if(t2==1 && t==1){
-      $('#c').drawImage({
-          source: images[Math.floor(Math.random()*3)],
-          x: 2*xw, y: 0, width: xw, height: ch,
-          fromCenter: false,
-      });
     }
-  }
-  else{
-    $('#vF').attr('src', vids[Math.floor(Math.random()*3)]);
-    //$('#vF').get(0).load();
-    //$('#vF').get(0).pauze();
-    $('#vF').show();
-    $('#vF').get(0).play();
-  };
-});
+    else{
 
+      var map2= {
+        strokeStyle: '#000',
+        strokeWidth: 0,
+        fillStyle: '#0f0',
+        close: true,
+        x1: 25,
+        y1: 50,
+        cx1: 175,
+        cy1: 50,
+        cx2: 25,
+        cy2: 150,
+        x2: 175,
+        y2: 150,
+        cx3: 275,
+        cy3: 150,
+        cx4: 125,
+        cy4: 1,
+        x3: 300,
+        //y3: 50
+      };
+      map2['y'+3] = 200;
 
+    var vormpje=window.MAAK2(2, cen, 400, 1.5);
 
-
-
-
-
-function generate(){
-
-  $('this').clearCanvas();
-  $("video").each(function(){
-    $(this).get(0).pause();
-    $(this).hide();
-});
-
-  var randttt = Math.random();
-  if(randttt>0.5){
-
-    var t=ran([3,3,3,2,2,1,1]);
-    var t2 = (t==3)?0 : (t==2) ? 1 : ran([2,2,1]);
-    //var t3 = (t2==1 && t==1) 1 : 0;
-    $('#c').drawImage({
-        source: images[Math.floor(Math.random()*3)],
-        x: 0, y: 0, width: t*xw, height: ch,
-        fromCenter: false,
-    });
-    $('#c').drawImage({
-        source: images[Math.floor(Math.random()*3)],
-        x: t*xw, y: 0, width: t2*xw, height: ch,
-        fromCenter: false,
-    });
-    if(t2==1 && t==1){
-      $('#c').drawImage({
-          source: images[Math.floor(Math.random()*3)],
-          x: 2*xw, y: 0, width: xw, height: ch,
-          fromCenter: false,
-      });
+    console.log("vormpje");
+    console.log(vormpje);
+    if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
     }
-  }
-  else{
-    //$('#vF').attr('src', vids[1]);
-    //$('#vF').get(0).load();
-    //$('#vF').get(0).pauze();
-    $('#vF').show();
-    $('#vF').get(0).play();
-  };
-}
+    if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    }if(!vormpje){
+      vormpje=window.MAAK2(2, cen, 400, 1.5);
+    };
+
+    var vormpje2=vormpje.offset(-50);
+
+    cur0= vormpje.curves[0].toSVG();
+    cur1 = vormpje.curves[1].toSVG();
+    curL = vormpje.curves[vormpje.curves.length-1].toSVG();
+    curLL = vormpje.curves[vormpje.curves.length-2].toSVG();
+
+    str1= vormpje.ZtoSVG();
+    str1v2 = vormpje2.ZtoSVG();
+    vormpje.setTension(1.1);
+    str2= vormpje.ZtoSVG();
+    vormpje.setTension(0.8);
+    str3= vormpje.ZtoSVG();
+    vormpje.setTension(1.5);
+    str4= vormpje.ZtoSVG();
+    $('#c').drawPath2d({
+      dataa: str1,
+      fillStyle: 'green'
+    });
+    $('#c').drawPath2d({
+      layer: true,
+      dataa: str1v2,
+      fillStyle: 'blue',
+      strokeWidth: 3
+    });
+    $('#c').drawPath2d({
+      layer: true,
+      dataa: str1,
+      fillStyle: 'red',
+      strokeWidth: 3
+    });
+    $('#c').drawPath2d({
+      dataa: curL,
+      fillStyle: 'orange'
+    });
+    $('#c').drawPath2d({
+      dataa: curLL,
+      fillStyle: 'white'
+    });
 
 
 
-//$('#vC').attr('src', 'http://techslides.com/demos/sample-videos/small.mp4');
-//$('#vC').attr('src', vids[1]);
-  //.css("left", "33%");
-/*
-  var imL = new Image();
-  var imC = new Image();
-  var imR = new Image();
-  var imF = new Image();
-
-  imL.onload=function(){
-    ctx.drawImage(imL,0,0);
-  }
-  imC.onload=function(){
-    ctx.drawImage(imC,xw,0,xw,ch);
-  }
-  imR.onload=function(){
-    ctx.drawImage(imR,2*xw,0,xw,ch);
-  }
-  imF.onload=function(){
-    ctx.drawImage(imF,0,0,cw,ch);
-  }
-
-  imL.src="spruitje.png";
-*/
+    };
 
 
+
+});
 
 
 
