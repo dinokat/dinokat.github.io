@@ -108,7 +108,7 @@ $(document).ready(function(){
 
 //$("#deb").text(JSON.stringify(vormpje,undefined,4));
 
-$("canvas").attr({width: cw, height: ch}).css("border", "1px solid black");
+$("canvas").attr({width: cw, height: ch})//.css("border", "1px solid black");
 //$("canvas").css("with": "840", "height": "525", "border": "1px solid black");
 
   //var ctx= $("CAN").getContext('2d');
