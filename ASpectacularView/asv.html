@@ -24,6 +24,36 @@
     <style>
 
 
+      .sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+.sidebar a.active {
+  background-color: #005588;
+  color: white;
+}
+.sidebar a:hover:not(.active) {
+  background-color: #0088ff;
+  color: white;
+}
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+        
+        
     p {
       color: red;
     }
@@ -95,6 +125,16 @@
 </head>
 
 <body>
+    
+    
+    <div class="sidebar">
+  <a class="active" href="#home">Zeno</a>
+  <a href="Varia.html">Varia</a>
+  <a href="page10.html">Projecten</a>
+  <a href="about.html">About</a>
+</div>
+
+<div class="content">
 
   <script src="Projection.js"></script>
 <p id="deb"></p>
@@ -110,6 +150,7 @@
 <canvas id="ct"></canvas>
 </div>
 
-
+    
+</div>
 </body>
 </html>
