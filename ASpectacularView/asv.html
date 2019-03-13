@@ -53,6 +53,23 @@ div.content {
   height: 1000px;
 }
         
+        @media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+        
         
     p {
       color: red;
@@ -97,6 +114,8 @@ div.content {
         bottom: 10;
         left: 10;
         right: 10;
+        width: 80%;
+        height: 80%;
 
     }
 
