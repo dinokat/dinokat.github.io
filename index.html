@@ -41,7 +41,6 @@
   margin-top: 10px;
 }
 .sidebar a.active {
-  background-colorbbbbbb: yellow;
   color: red;
   padding-top: 10px;
   border-color: blue;
@@ -61,27 +60,35 @@ div.content {
   height: 1000px;
 }
 
-@media screen and (max-width: 400px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    font-sizebbb: 3rem;
-  }
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
+
+.commentaar {
+  margin: https://matthewjamestaylor.com/css-centred-menus# ;
+  jsdf: Probeer het menu te centeren wanneer het horizontaal is;
 }
+
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
     height: auto;
     position: relative;
-    font-sizebbb: 2rem;
+  	margin: auto;
   }
-  .sidebar a {float: left;}
+  .sidebar a {
+  	float: left;
+    margin-left: 15px;
+    margin-top: 5px;
+    }
   div.content {margin-left: 0;}
+}
+
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+    margin-top: 5px;
+    margin-left: 2px;
+  }
 }
 
 
